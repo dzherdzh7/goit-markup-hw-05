@@ -28,20 +28,18 @@ img {
 }
 .hero {
   background-color: #2e2f42;
-  color: #ffffff;
-  text-align: center;
   padding: 188px 0;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 188px 0;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(/images/hero_image.jpg);
+    url(../images/people-office.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   text-align: center;
   color: #ffffff;
 }
@@ -528,8 +526,8 @@ img {
   margin-left: 16px;
   fill: #f4f4fd;
 }
-/* Modal Window */
-/* Бекдроп */
+
+/* ======== Бекдроп ======== */
 .backdrop {
   position: fixed;
   top: 0;
@@ -537,41 +535,187 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: rgba(46, 47, 66, 0.4);
-  z-index: 1000;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  z-index: 999;
 }
 
-/* Коли відкрито */
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+/* Сховано за замовчуванням */
+.backdrop[hidden] {
+  display: none;
 }
 
-/* Вікно */
+/* ======== Модальне вікно ======== */
 .modal {
   position: relative;
   width: 408px;
   min-height: 584px;
-  padding: 72px 24px 24px;
   background-color: #fcfcfc;
   border-radius: 4px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 24px 24px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 
+              0px 4px 4px rgba(0, 0, 0, 0.1),
+              1px 4px 6px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
-/* Кнопка закриття */
+/* Заголовок */
+.modal-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #2e2f42;
+}
+
+/* ======== Форма ======== */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Поле з підписом */
+.modal-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+/* Обгортка інпута + іконка */
+.modal-input-wrapper {
+  position: relative;
+}
+
+/* Інпут */
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  height: 40px;
+  padding-left: 38px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 14px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Textarea */
+.modal-textarea {
+  resize: none;
+  padding: 8px 16px;
+  height: 120px;
+}
+.modal-field-textarea {
+  margin-bottom: 16px;
+}
+
+/* Іконка всередині */
+.modal-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #2e2f42;
+  pointer-events: none;
+}
+
+/* При фокусі */
+.modal-input:focus,
+.modal-textarea:focus {
+  border-color: #4d5ae5;
+  outline: none;
+}
+
+.modal-input:focus + .modal-icon,
+.modal-textarea:focus + .modal-icon {
+  fill: #4d5ae5;
+}
+
+/* ======== Чекбокс ======== */
+.modal-agreement {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8e8f99;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.modal-agreement .custom-checkbox {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.modal-checkbox:checked + .custom-checkbox {
+  background-color: #4d5ae5;
+  border-color: #4d5ae5;
+}
+
+.check-icon {
+  fill: #ffffff;
+  opacity: 1;
+}
+
+/* Приховування справжнього чекбокса */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======== Кнопка Send ======== */
+.modal-submit {
+  margin-top: 24px;
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 4px;
+  background-color: #4d5ae5;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-submit:hover,
+.modal-submit:focus {
+  background-color: #404bbf;
+}
+
+/* Посилання на політику */
+.privacy-link {
+  color: #4d5ae5;
+}
+
+/* ======== Кнопка закриття ======== */
 .modal-close {
   position: absolute;
   top: 24px;
@@ -585,9 +729,8 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
@@ -597,11 +740,21 @@ img {
   fill: #4d5ae5;
 }
 
-/* Іконка закриття */
+/* Іконка X */
 .modal-close-icon {
   width: 8px;
   height: 8px;
   fill: #2e2f42;
+}
+
+/* ======== Загальні стилі для нормального вигляду ======== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.checkbox-text {
+  display: inline;
 }
 
 img {
