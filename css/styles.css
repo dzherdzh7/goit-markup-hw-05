@@ -607,7 +607,9 @@ img {
 }
 
 /* modal fields */
-.modal-field,
+.modal-field {
+  margin-bottom: 8px;
+}
 .modal-field-comment {
   margin-bottom: 16px;
 }
@@ -688,7 +690,7 @@ img {
   align-items: center;
 }
 
-.checkbox-custom {
+span.checkbox-custom {
   display: inline-flex;
   width: 16px;
   height: 16px;
