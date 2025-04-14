@@ -536,7 +536,7 @@ img {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ======== Модальне вікно ======== */
@@ -549,11 +549,11 @@ img {
   min-height: 584px;
   padding: 72px 24px 24px 24px;
   background: #fcfcfc;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
-              0px 1px 3px rgba(0, 0, 0, 0.12),
-              0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 8px;
 }
 
 .modal-title {
@@ -562,7 +562,7 @@ img {
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
-  color: var(--color-main-text, #2E2F42);
+  color: var(--color-main-text, #2e2f42);
   margin-bottom: 16px;
 }
 
@@ -667,8 +667,8 @@ img {
   border-radius: 2px;
   fill: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   margin-right: 8px;
 }
 
@@ -689,7 +689,7 @@ img {
   margin: 0 auto;
   border: none;
   border-radius: 4px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -720,7 +720,7 @@ img {
   justify-content: center;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
